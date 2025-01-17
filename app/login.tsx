@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, SafeAreaView, Platform } from 'react-native';
 import { useRouter } from 'expo-router';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase/config'; // Import konfigurasi Firebase
+import { auth } from '../firebase/config'; 
 
 export default function LoginScreen() {
   const router = useRouter();
@@ -11,7 +11,7 @@ export default function LoginScreen() {
     email: '',
     password: '',
   });
-  const [isPressed, setIsPressed] = useState(false); // State untuk tombol hover/pressed
+  const [isPressed, setIsPressed] = useState(false); 
 
 
   const handleInputChange = (key: string, value: string) => {
@@ -19,15 +19,15 @@ export default function LoginScreen() {
   };
 
   const handleSignIn = async () => {
-    // Validasi input
+    
     if (!form.email || !form.password) {
       Alert.alert('Error', 'Please enter both email and password!');
       return;
     }
 
-    // Simulasi autentikasi (contoh: lakukan permintaan API untuk login)
+    
     try {
-      // Login dengan Firebase Authentication
+      
       const userCredential = await signInWithEmailAndPassword(auth, form.email, form.password);
       const user = userCredential.user;
 

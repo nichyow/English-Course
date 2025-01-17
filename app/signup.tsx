@@ -9,7 +9,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 export default function SignUpScreen() {
   const router = useRouter();
 
-  // State untuk menyimpan input
+  
   const [form, setForm] = useState({
     username: '',
     email: '',
@@ -18,10 +18,10 @@ export default function SignUpScreen() {
   });
   const showAlert = (title: string, message: string) => {
     if (Platform.OS === 'web') {
-      // Gunakan alert bawaan browser untuk web
+      
       window.alert(`${title}: ${message}`);
     } else {
-      // Gunakan Alert untuk platform lain
+      
       Alert.alert(title, message);
     }
   };
@@ -31,7 +31,7 @@ export default function SignUpScreen() {
   };
 
   const handleSignUp = async () => {
-    // Validasi sederhana kalo semua field tuh harus diisi
+    
     if (!form.username || !form.email || !form.password || !form.confirmPassword) {
       showAlert('Error', 'All fields are required!');
       console.log('Validation failed: missing fields');
@@ -44,7 +44,7 @@ export default function SignUpScreen() {
     }
   
     try {
-      // Cek apakah username atau email sudah digunakan di Firestore
+      
       const usernameQuery = await getDocs(query(collection(db, 'users'), where('username', '==', form.username)));
       const emailQuery = await getDocs(query(collection(db, 'users'), where('email', '==', form.email)));
   
@@ -60,18 +60,18 @@ export default function SignUpScreen() {
         return;
       }
   
-      // Buat akun menggunakan Firebase Authentication
+      
       const userCredential = await createUserWithEmailAndPassword(auth, form.email, form.password);
       const user = userCredential.user;
   
-      // Simpan data tambahan pengguna di Firestore
+      
       await setDoc(doc(db, 'users', user.uid), {
         username: form.username,
         email: form.email,
         createdAt: serverTimestamp(),
       });
   
-      // Tampilkan notifikasi sukses dan arahkan ke halaman login
+      
       showAlert('Success', 'Account created successfully!');
       router.replace('/login'); // Redirect ke halaman login
     } catch (error: any) {

@@ -7,7 +7,7 @@ import { signOut } from 'firebase/auth';
 import backIcon from '../assets/images/arrow.png';
 import { LinearGradient } from 'expo-linear-gradient';
 import { User, Phone, Home, MapPin, Mail } from 'react-native-feather';
-// import Svg, { Path } from 'react-native-svg';
+
 
 
 export default function ProfileScreen() {
@@ -52,7 +52,7 @@ export default function ProfileScreen() {
 
   const handleSave = async () => {
     try {
-      const user = auth.currentUser; // Dapatkan pengguna yang sedang login
+      const user = auth.currentUser; 
       if (user) {
         await updateDoc(doc(db, 'users', user.uid), userData);
         setIsEditing(false);
@@ -65,8 +65,8 @@ export default function ProfileScreen() {
   };
   const handleLogout = async () => {
     try {
-      await signOut(auth); // Keluar dari akun
-      router.replace('/login'); // Redirect ke halaman login
+      await signOut(auth); 
+      router.replace('/login'); 
     } catch (error) {
       console.error('Logout error:', error);
       Alert.alert('Error', 'Failed to logout.');

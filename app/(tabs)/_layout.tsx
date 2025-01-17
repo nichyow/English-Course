@@ -5,26 +5,25 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
 import { useColorScheme } from 'react-native';
 
-// Mencegah Splash bawaan Expo hilang otomatis
+
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme(); // Mendapatkan tema perangkat
+  const colorScheme = useColorScheme(); 
   const [appIsReady, setAppIsReady] = useState(false);
 
-  // Menyiapkan aplikasi, seperti menyembunyikan Splash bawaan Expo
   useEffect(() => {
     const prepareApp = async () => {
       try {
-        // Tambahkan persiapan lain jika diperlukan (misalnya, memuat data atau konfigurasi)
-        await new Promise((resolve) => setTimeout(resolve, 2000)); // Simulasi 2 detik persiapan
+        
+        await new Promise((resolve) => setTimeout(resolve, 2000)); 
       } catch (error) {
         console.error('Error preparing app:', error);
       } finally {
-        // Tandai aplikasi siap
+        
         setAppIsReady(true);
 
-        // Sembunyikan Splash bawaan Expo
+        
         await SplashScreen.hideAsync();
       }
     };
@@ -32,9 +31,9 @@ export default function RootLayout() {
     prepareApp();
   }, []);
 
-  // Render hanya jika aplikasi sudah siap
+  
   if (!appIsReady) {
-    return null; // Tetap pada Splash bawaan Expo sampai siap
+    return null; 
   }
 
   return (
