@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "831359513794",
+    "project_id": "englishcourse-89251",
+    "storage_bucket": "englishcourse-89251.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:831359513794:android:38354a6120c3e62803375b",
+        "android_client_info": {
+          "package_name": "com.nichyow.PAWM"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAREaYTpgwN4_KQN1IWV-koVkVRSQ4GCxQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
