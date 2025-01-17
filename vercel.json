@@ -7,7 +7,7 @@
     "rewrites": [
       {
         "source": "/:path*",
-        "destination": "/signup"
+        "destination": "/login"
       }
     ]
   }
